@@ -1,0 +1,91 @@
+{
+  "note": "This is a sample config file. You should change the mockDirectory to a more reasonable path.",
+  "mockDirectory": "/Users/mmonti/Documents/apimocker-test/samplemocks/shopsears/",
+  "staticDirectory": "/file/system/path/to/static/directory",
+  "staticPath": "/web/path/to/static/directory",
+  "allowedHeaders": ["Content-Type", "X-SAL-Date", "X-USP-TraceID", "Authorization", "X-SAL-SessionID"],
+  "quiet": false,
+  "port": "7878",
+  "latency": 100,
+  "webServices": {
+    "v1/register/stores/0001213/devices/SS01REG01SSL": {
+      "mockFile": "registerDevice.json",
+      "verbs": ["post"]
+    },
+    "v1/security/authenticate": {
+      "verbs": ["post"],
+      "switch": ["userId", "password"],
+      "responses": {
+        "post": {"httpStatus": 401, "mockFile": "sorry.json"}
+      },
+      "switchResponses": {
+        "userIddperropasswordearntrust": {"httpStatus": 200, "mockFile": "authenticate.json"}
+      }
+    },
+    "v1/carts": {
+      "mockFile": "initCart.json",
+      "verbs": ["post"]
+    },
+    "v2/products/search": {
+      "mockFile": "search.json",
+      "verbs": ["get"]
+    },
+    "v3/products/details/04641153000P": {
+      "mockFile": "productDetails.json",
+      "verbs": ["get"]
+    },
+    "v2/productdetails/04641153000/recommendations": {
+      "mockFile": "recommendations.json",
+      "verbs": ["get"]
+    },
+    "v1/inventory/check": {
+      "mockFile": "inventory.json",
+      "verbs": ["post"]
+    },
+    "v1/carts/c3117d3b-43e4-4bbf-9b16-b9105df7c679/items": {
+      "mockFile": "itemsCart.json",
+      "verbs": ["post"]
+    },
+    "v1/carts/c3117d3b-43e4-4bbf-9b16-b9105df7c679/items/60c05ea3-740b-4bc1-a319-58d4f3c5fa3a/availableoptions": {
+      "mockFile": "availableOptions.json",
+      "verbs": ["get"]
+    },
+    "v1/carts/c3117d3b-43e4-4bbf-9b16-b9105df7c679": {
+      "mockFile": "cart.json",
+      "verbs": ["get"],
+      "mocks": ["cart1.json", "cart2.json"]
+    },
+    "v1/carts/c3117d3b-43e4-4bbf-9b16-b9105df7c679/promotions/searscard": {
+      "mockFile": "promotions.json",
+      "verbs": ["get"]
+    },
+    "v1/carts/c3117d3b-43e4-4bbf-9b16-b9105df7c679/giftcardrebates": {
+      "mockFile": "rebates.json",
+      "verbs": ["get"]
+    },
+    "v1/carts/c3117d3b-43e4-4bbf-9b16-b9105df7c679/customer": {
+      "mockFile": "customer.json",
+      "verbs": ["put"]
+    },
+    "v1/carts/c3117d3b-43e4-4bbf-9b16-b9105df7c679/placeorder": {
+      "mockFile": "placeOrder.json",
+      "verbs": ["put"]
+    },
+    "v1/payment/cards/bincheck": {
+      "mockFile": "binCheck.json",
+      "verbs": ["post"]
+    },
+    "v1/carts/c3117d3b-43e4-4bbf-9b16-b9105df7c679/payments": {
+      "verbs": ["post"],
+      "mockFile": "payments.json"
+    },
+    "v1/carts/c3117d3b-43e4-4bbf-9b16-b9105df7c679/payments/2ad4a6d3-bfbb-47b3-9e2b-708e5f6652ed": {
+      "verbs": ["put"],
+      "mockFile": "paymentsComplete.json"
+    },
+    "v1/carts/c3117d3b-43e4-4bbf-9b16-b9105df7c679/payments/complete": {
+      "mockFile": "paymentsComplete.json",
+      "verbs": ["put"]
+    }
+  }
+}
