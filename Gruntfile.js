@@ -37,12 +37,19 @@ module.exports = function (grunt) {
                 'lib/apimocker.js',
                 'test/{,*/}*.js'
             ]
+        },
+
+        bgShell: {
+          runApiMocker: {
+            cmd: 'node bin/apimocker'
+          }
         }
     });
 
     grunt.loadNpmTasks('grunt-mocha-cli');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-bg-shell');
 
     grunt.registerTask('test', [
         'mochacli'
@@ -51,5 +58,9 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'jshint',
         'test'
+    ]);
+
+    grunt.registerTask('run', [
+        'bgShell:runApiMocker'
     ]);
 };
