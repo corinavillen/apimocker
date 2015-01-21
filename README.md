@@ -5,41 +5,24 @@ Access-Control HTTP Headers are set by default to allow CORS requests.
 Mock services are configured in the config.json file, or on the fly, to allow for easy functional testing.
 Apimocker can return different responses or HTTP status codes, based on request parameters - even complex JSON requests.
 Using apimocker, you can develop your web or mobile app with no dependency on back end services.
-(There are lots of these projects out there, but I wrote this one to support all kinds of responses,
-to allow on-the-fly configuration, and to run in node.)
 
 ## Installation
-		sudo npm install -g apimocker
-That will install globally, and allow for easier usage.
-(On Windows, you don't need "sudo".)
+```
+$ git clone https://github.com/corinavillen/apimocker
+$ cd apimocker/
+$ npm install
+$ grunt run
+```
 
 ## Usage
-        apimocker [-c, --config \<path\>] [-q, --quiet] [-p \<port\>]
 
-Out of the box, you can just run "apimocker" with no arguments.
-(Except on windows, you'll need to edit config.json first.  See below.)
-
-Then you can visit "http://localhost:7878/first" in your browser to see it work.
+Then you can visit "http://localhost:7878/v3/products/details/04641153000P" in your browser to see it work.
 The quiet and port options can also be set in the config.json file,
 and values from config.json will override values from the command line.
 After you get up and running, you should put your config.json and mock responses in a better location.
 It's not a good idea to keep them under the "node_modules" directory.
 Make sure another process is not already using the port you want.
 If you want port 80, you may need to use "sudo" on Mac OSX.
-
-### With Grunt
-If you're using Grunt for your project, there's a grunt plugin you can use to start up apimocker:
-https://github.com/gstroup/grunt-apimocker
-
-### Windows note
-After installing from npm, you'll need to edit this file:
-        /Users/xxxxx/AppData/Roaming/npm/node_modules/apimocker/config.json
-Change the "mockDirectory" to point to this location.
-(Or another location where you put the mock responses.)
-        mockDirectory: /Users/xxxxx/AppData/Roaming/npm/node_modules/apimocker/samplemocks
-
-### Help
-        apimocker -h
 
 ## Configuration
 On startup, config values are loaded from the config.json file.

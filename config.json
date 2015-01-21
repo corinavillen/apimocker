@@ -1,6 +1,6 @@
 {
   "note": "This is a sample config file. You should change the mockDirectory to a more reasonable path.",
-  "mockDirectory": "/usr/local/lib/node_modules/apimocker/mocks/",
+  "mockDirectory": "mocks/",
   "staticDirectory": "/file/system/path/to/static/directory",
   "staticPath": "/web/path/to/static/directory",
   "allowedHeaders": ["Content-Type", "X-SAL-Date", "X-USP-TraceID", "Authorization", "X-SAL-SessionID"],
